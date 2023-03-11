@@ -1,0 +1,258 @@
+/* css link for customised Montserrat */
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+
+* {     /* this is to remove the unwanted default spacing between elements */
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+/* html {
+	font-size: 10px;
+	font-family: 'Montserrat', sans-serif;
+	scroll-behavior: smooth;
+} */
+a {
+	text-decoration: none; /* to remove the underline */
+}
+.container {
+	min-height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+p {
+	color: black;
+	font-size: 1.4rem;
+	margin-top: 5px;
+	line-height: 2.5rem;
+	font-weight: 300;
+	letter-spacing: .05rem;
+}
+.section-title {
+	font-size: 4rem;
+	font-weight: 300;
+	color: black;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: .2rem;
+	text-align: center;
+}
+.section-title span {
+	color: #3693ff;
+}
+
+.cta {
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent; /* without hover color */
+	/*border: 2px solid #3693ff;*/
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: .1rem;
+	margin-top: 40px;
+	margin-left: 115px;
+	transition: .3s ease; /* default is ease slow-fast-slow */
+	transition-property: background-color, color;
+	box-shadow: 2px 20px 40px rgba(0,0,0,1);
+	overflow: hidden;
+	transform: translate(-50%,-50%);
+}
+.cta:hover {
+	color: white;
+	background-color: #3693ff;
+}
+.cta:before{
+	content:'';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	bottom: 2px;
+	width: 50%;
+	background: rgba(255,255,255,0.05);
+ }
+ .cta span:nth-child(1){
+	 position: absolute;
+	 top: 0px;
+	 left: 0px;
+	 width: 100%;
+	 height: 2px;
+	 background: linear-gradient(to right, #0c002b, #1779ff);
+	 animation: animate1 2s linear infinite;
+ }
+ @keyframes animate1{
+	 0%{
+		 transform: translateX(-100%);
+	 }
+	 100%{
+		 transform: translateX(100%);
+	 }
+ }
+ .cta span:nth-child(2){
+	 position: absolute;
+	 top: 0px;
+	 right: 0px;
+	 width: 2px;
+	 height: 100%;
+	 background: linear-gradient(to bottom, #0c002b, #1779ff);
+	 animation: animate2 2s linear infinite;
+	 animation-delay: 1s;
+ }
+ @keyframes animate2{
+	 0%{
+		 transform: translateY(-100%);
+	 }
+	 100%{
+		 transform: translateY(100%);
+	 }
+ }
+ .cta span:nth-child(3){
+	 position: absolute;
+	 bottom: 0px;
+	 right: 0px;
+	 width: 100%;
+	 height: 2px;
+	 background: linear-gradient(to left, #0c002b, #1779ff);
+	 animation: animate3 2s linear infinite;
+ }
+ @keyframes animate3{
+	 0%{
+		 transform: translateX(100%);
+	 }
+	 100%{
+		 transform: translateX(-100%);
+	 }
+ }
+ .cta span:nth-child(4){
+	 position: absolute;
+	 bottom: 0px;
+	 left: 0px;
+	 width: 2px;
+	 height: 100%;
+	 background: linear-gradient(to top, #0c002b, #1779ff);
+	 animation: animate4 2s linear infinite;
+	 animation-delay: 1s;
+ }
+ @keyframes animate4{
+	 0%{
+		 transform: translateY(100%);
+	 }
+	 100%{
+		 transform: translateY(-100%);
+	 }
+ }
+.brand h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	color: white;
+}
+.brand h1 span {
+	color: #3693ff;
+}
+
+/* Hero Section */
+#hero {
+	background-image: url(../assets/bg.webp);
+	background-size: cover;
+	background-position: top center;
+	position: relative;
+	z-index: 1; /* position it above overlay */
+}
+#hero::after { /* overlay */
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: .7; /* this adds a good contrast */
+	z-index: -1; /* positioning this layer below the main hero layer */
+	/* if we don't position it, we won't be able to access the buttons or links */
+}
+#hero .hero {
+	max-width: 1200px; /* so that the content remains in the 1200px block */
+	margin: 0 auto;
+	padding: 0 50px;
+	justify-content: flex-start;
+}
+#hero h1 {
+	display: block;
+	width: fit-content;
+	font-size: 4rem;
+	position: relative;
+	color: transparent; /* initial color */
+	animation: text_reveal .5s ease forwards;
+	animation-delay: 1s;
+}
+#hero h1:nth-child(1) {
+	animation-delay: 1s;
+}
+#hero h1:nth-child(2) {
+	animation-delay: 2s;
+}
+#hero h1:nth-child(3) {
+	animation: text_reveal_name .5s ease forwards;
+	animation-delay: 3s;
+}
+#hero h1 span {
+	/* we want a text reveal box */
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0; /* initial width */
+	background-color: #3693ff;
+	animation: text_reveal_box 1s ease; /* key frame */
+	animation-delay: .5s;
+}
+#hero h1:nth-child(1) span {
+	animation-delay: .5s;
+}
+#hero h1:nth-child(2) span {
+	animation-delay: 1.5s;
+}
+#hero h1:nth-child(3) span {
+	animation-delay: 2.5s;
+}
+
+/* End Hero Section */
+/* Keyframes */
+@keyframes hamburger_puls {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+}
+@keyframes text_reveal_box {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+@keyframes text_reveal {
+	100% {
+		color: white;
+	}
+}
+@keyframes text_reveal_name {
+	100% {
+		color: #3693ff;
+		font-weight: 500;
+	}
+}
+/* End Keyframes */

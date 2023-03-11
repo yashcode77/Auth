@@ -2,6 +2,10 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
+import { Routes, Route } from "react-router-dom";
+
+// import Navbar from 'src\components\Navbar.js';
+// import Hero from 'src\components\Hero.js\Hero';
 
 const Home = () => {
   const { logOut, user } = useUserAuth();
@@ -25,6 +29,20 @@ const Home = () => {
           Log out
         </Button>
       </div>
+      {/* <Navbar /> */}
+      {/* <Routes>
+              <Route
+                path="/home"
+                element={
+                  <ProtectedRoute>
+                    <Hero />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+      </Routes> */}
+      
     </>
   );
 };
